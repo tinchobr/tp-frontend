@@ -1,23 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import Header from "./components/Header";
+import NavLogin from "./components/NavLogin";
+import './App.css'
+import { Button } from "react-bootstrap";
+import { logout } from "./actions/auth";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate  } from 'react-router-dom';
 
-function App() {
+
+function App({children}) {
+  
+  let navigate = useNavigate();
+  const dispatch = useDispatch();
+  const { isLoggedIn } = useSelector(state => state.auth);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header>TP-FRONTEND</Header>
+      <NavLogin />
+      {isLoggedIn && <Button
+        onClick={()=>{
+          navigate("/");
+          dispatch(logout())
+        }}
+        children="Logout"
+      />}
+      {children}
     </div>
   );
 }
