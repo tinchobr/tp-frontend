@@ -8,9 +8,7 @@ const Img = styled.img`
 
 function Character(c) {
   return (
-    <div id={c._id} style={{  height:'200px'}}>
-    {/* <div id={c._id} style={{  height:'200px'}}> */}
-      {/* <h1 style={{position:'relative'}}>{c.name}</h1> */}
+    <div id={c._id} style={{  height:'200px'}} onClick={()=>console.log("click en el ñeri")}>
       <Img
         src={require(`../assets/img/face/${c.face.url}`)}
         alt="face"

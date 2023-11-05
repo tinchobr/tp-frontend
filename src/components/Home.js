@@ -17,13 +17,14 @@ function Home() {
 
   return (
     <>
-      <Form>
-        <Button onClick={() => navigate("/create")}>Crear</Button>
+      <Form style={{marginTop:'10px'}}>
+        <Button onClick={() => navigate("/create")}>New</Button>
         <Row>
           {characters.map((c) => {
             return (
               <Col>
                 <Character {...c} />
+                <h3>{c.name}</h3>
               </Col>
             );
           })}

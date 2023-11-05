@@ -41,21 +41,18 @@ function NavLogin() {
   return (
     <StyledNavbar >
       {!isLoggedIn && <Form onSubmit={onSubmit}>
-        <StyledSpan>
           <Form.Control
             placeholder="Username"
             aria-label="Username"
             onChange={(e) => setUsername(e.target.value)}
           />
-        </StyledSpan>
-        <StyledSpan>
           <Form.Control
             type="password"
             placeholder="Pin"
             pattern="[0-9]*"
+            maxLength={4}
             onChange={(e) => setPin(Number(e.target.value))}
           />
-        </StyledSpan>
         <Button type="submit">Login</Button>
       </Form>}
     </StyledNavbar>

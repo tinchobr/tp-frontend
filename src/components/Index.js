@@ -19,6 +19,7 @@ function Index() {
           return (
             <Col>
               <Character {...c} />
+                <h3>{c.name}</h3>
             </Col>
           );
         })}

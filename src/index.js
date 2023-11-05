@@ -10,6 +10,7 @@ import store from "./store";
 import Index from "./components/Index";
 import Home from "./components/Home";
 import Create from "./components/Create";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

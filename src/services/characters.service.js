@@ -1,8 +1,8 @@
 import axios from "axios";
 import authHeader from "./auth-header";
 
-const createCharacter = () => {
-  return axios.post("/character", {}, { headers: authHeader() });
+const createCharacter = (body) => {
+  return axios.post("/characters", body, { headers: authHeader() });
 };
 
 const getUserCharacters = () =>{
