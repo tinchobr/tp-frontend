@@ -2,7 +2,6 @@ import {
   LOGIN_SUCCESS,
   LOGIN_FAIL,
   LOGOUT,
-  SET_MESSAGE,
 } from "./types";
 
 import AuthService from "../services/auth.service";
@@ -29,12 +28,7 @@ export const login = (username, pin) => (dispatch) => {
         type: LOGIN_FAIL,
       });
 
-      dispatch({
-        type: SET_MESSAGE,
-        payload: message,
-      });
-
-      return Promise.reject();
+      return Promise.reject(message);
     }
   );
 };

@@ -4,15 +4,17 @@ import charactersService from "../services/characters.service";
 import { Button, Col, Form, Row } from "react-bootstrap";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
+import useWindowDimensions from "../hooks/useWindowDimensions";
 
 const StyledButton = styled(Button)`
-  width: fit-content;
-  margin-top: auto;
+  margin-top: 2px;
   margin-left: 10px;
+  margin-right: 10px;
 `;
 
 function Create() {
   let navigate = useNavigate();
+  const { width } = useWindowDimensions();
   const [characterizations, setCharacterizations] = useState({});
   const [character, setCharacter] = useState({
     _id: 0,
@@ -79,15 +81,16 @@ function Create() {
   return (
     <Form>
       <Row>
-        <Col>
+        <Col xs={6}>
           <Character {...character} />
         </Col>
-        <Col style={{ display: "inline-grid" }}>
+        <Col style={{ display: "inline-grid" }} xs={width > 500 ? 1 : 0}>
           <Form.Control
             style={{
-              width: "fit-content",
+              width: "auto",
               marginTop: "auto",
               marginLeft: "10px",
+              marginRight: "10px"
             }}
             placeholder="Name"
             onChange={(e) =>

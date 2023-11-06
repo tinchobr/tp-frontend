@@ -7,7 +7,6 @@ import "./config/AxiosConfig";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "./store";
-import Index from "./components/Index";
 import Home from "./components/Home";
 import Create from "./components/Create";
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -18,7 +17,7 @@ root.render(
     <BrowserRouter>
       <App>
         <Routes>
-          <Route path="/" element={<Index />} />
+          <Route path="/" element={<Home />} />
           <Route path="/home" element={<Home />} />
           <Route path="/create" element={<Create />} />
         </Routes>
